@@ -1,0 +1,24 @@
+{
+  "name": "{{name}}",
+  "version": "1.0.0",
+  "description": "{{description}}",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {},
+  "author": {
+    "name": "{{user.name}}",
+    "email": "{{user.email}}",
+    "url": "{{user.site}}"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/{{user.github}}/{{name}}.git"
+  },
+  "keywords": {{tags}},
+  "homepage": "https://github.com/{{user.github}}/{{name}}",
+  "bugs": {
+    "url": "https://github.com/{{user.github}}/{{name}}/issues"
+  }
+}

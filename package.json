@@ -1,0 +1,33 @@
+{
+  "name": "module-generator",
+  "version": "1.0.0",
+  "description": "The generator script I use for fresh modules",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {},
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
+  "dependencies": {
+    "dotty": "0.0.2",
+    "inquirer": "^0.5.1",
+    "npmconf": "^1.0.1",
+    "readdirp": "^1.0.1",
+    "xtend": "^3.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/module-generator.git"
+  },
+  "keywords": [
+    "generator",
+    "not-yeoman",
+    "template",
+    "module",
+    "author",
+    "npm"
+  ],
+  "homepage": "https://github.com/hughsk/module-generator",
+  "bugs": {
+    "url": "https://github.com/hughsk/module-generator/issues"
+  }
+}
