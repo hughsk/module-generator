@@ -1,6 +1,9 @@
 {
   "name": "module-generator",
   "version": "1.0.0",
+  "bin": {
+    "module-generator": "index.js"
+  },
   "description": "The generator script I use for fresh modules",
   "main": "index.js",
   "license": "MIT",

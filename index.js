@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var prompt   = require('inquirer').prompt
 var readdirp = require('readdirp')
 var conf     = require('npmconf')
