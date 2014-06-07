@@ -49,7 +49,7 @@ function getParams(done) {
     var data = {
       user: {
           name: config.get('init.author.name')
-        , site: config.get('init.author.url')
+        , site: config.get('init.author.url')||''
         , email: config.get('init.author.email')
         , github: config.get('init.author.github')
         , username: config.get('username')
@@ -58,7 +58,6 @@ function getParams(done) {
 
     if (!data.user.username) return bail('npm login')
     if (!data.user.name) return bail('npm config set init.author.name "Your Name"')
-    if (!data.user.site) return bail('npm config set init.author.url "http://example.com"')
     if (!data.user.email) return bail('npm config set init.author.email "me@example.com"')
     if (!data.user.github) return bail('npm config set init.author.github "your-github-handle"')
 

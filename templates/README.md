@@ -1,3 +1,5 @@
+[![browser support](https://ci.testling.com/{{user.github}}/{{name}}.png)](https://ci.testling.com/{{user.github}}/{{name}})
+
 # {{name}} [![{{stability}}](http://badges.github.io/stability-badges/dist/{{stability}}.svg)](http://github.com/badges/stability-badges)
 
 {{description}}
@@ -8,4 +10,4 @@
 
 ## License
 
-MIT. See [LICENSE.md](http://github.com/{{user.github}}/{{name}}/blob/master/LICENSE.md) for details.
+MIT, see [LICENSE.md](http://github.com/{{user.github}}/{{name}}/blob/master/LICENSE.md) for details.
