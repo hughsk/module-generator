@@ -1,6 +1,8 @@
 [![browser support](https://ci.testling.com/{{user.github}}/{{name}}.png)](https://ci.testling.com/{{user.github}}/{{name}})
 
-# {{name}} [![{{stability}}](http://badges.github.io/stability-badges/dist/{{stability}}.svg)](http://github.com/badges/stability-badges)
+# {{name}}
+
+[![{{stability}}](http://badges.github.io/stability-badges/dist/{{stability}}.svg)](http://github.com/badges/stability-badges)
 
 {{description}}
 
