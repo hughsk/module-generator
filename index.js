@@ -21,7 +21,7 @@ getParams(function(err, params) {
     if (fs.existsSync(dest)) {
       return console.log('ignoring: ' + file.path)
     }
-    // console.log("rendering", file)
+    // console.log("rendering", file.fullPath, "dest")
 
     fs.readFile(file.fullPath, 'utf8', function(err, content) {
       if (err) throw err

@@ -32,7 +32,6 @@
     "type": "git",
     "url": "git://github.com/{{user.github}}/{{name}}.git"
   },
-  "keywords": {{tags}},
   "homepage": "https://github.com/{{user.github}}/{{name}}",
   "bugs": {
     "url": "https://github.com/{{user.github}}/{{name}}/issues"
