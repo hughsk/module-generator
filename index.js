@@ -36,7 +36,6 @@ getParams(function(err, params) {
 
       if (file.name.match(/\_\.gitignore$/g)) {
         dest = dest.replace('_.gitignore', '.gitignore');
-        console.log("New dest", dest)
       }
 
       fs.writeFile(dest, content)
