@@ -23,6 +23,8 @@ getParams(function(err, params) {
     }
     // console.log("rendering", file.fullPath, "dest")
 
+    
+
     fs.readFile(file.fullPath, 'utf8', function(err, content) {
       if (err) throw err
 
@@ -30,6 +32,11 @@ getParams(function(err, params) {
 
       if (file.name.match(/\.json$/g)) {
         content = JSON.stringify(JSON.parse(content), null, 2)
+      }
+
+      if (file.name.match(/\_\.gitignore$/g)) {
+        dest = dest.replace('_.gitignore', '.gitignore');
+        console.log("New dest", dest)
       }
 
       fs.writeFile(dest, content)
