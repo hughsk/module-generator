@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+var varName = require('variable-name')
 var prompt   = require('inquirer').prompt
 var readdirp = require('readdirp')
 var conf     = require('npmconf')
@@ -7,6 +8,10 @@ var xtend    = require('xtend')
 var dotty    = require('dotty')
 var path     = require('path')
 var fs       = require('fs')
+var argv = require('yargs')
+      .alias('s', 'source')
+      .describe('s', "generate index.js and test.js files")
+      .argv
 
 var target = process.cwd()
 
@@ -17,6 +22,11 @@ getParams(function(err, params) {
     root: path.join(__dirname, 'templates')
   }).on('data', function(file) {
     var dest = path.resolve(target, file.path)
+
+    if (!argv.s) {
+      if (file.path === 'index.js' || file.path === 'test.js')
+        return
+    }
 
     if (fs.existsSync(dest)) {
       return console.log('ignoring: ' + file.path)
@@ -101,6 +111,7 @@ function getParams(done) {
 
       results.name = dequote(results.name)
       results.description = dequote(results.description)
+      results.varName = varName(results.name)
       results.tags = JSON.stringify(results.tags.split(' ').map(function(str) {
         return dequote(str).trim()
       }).filter(Boolean), null, 2)
