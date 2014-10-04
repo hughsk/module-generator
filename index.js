@@ -73,10 +73,14 @@ function getParams(done) {
       }
     }
 
-    if (!data.user.username) return bail('npm login')
+    // if (!data.user.username) return bail('npm login')
     if (!data.user.name) return bail('npm config set init.author.name "Your Name"')
     if (!data.user.email) return bail('npm config set init.author.email "me@example.com"')
     if (!data.user.github) return bail('npm config set init.author.github "your-github-handle"')
+
+    if (!data.user.url) {
+      data.user.url = 'https://github.com/'+data.user.github
+    }
 
     prompt([
       {

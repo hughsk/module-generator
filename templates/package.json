@@ -6,7 +6,8 @@
   "license": "MIT",
   "author": {
     "name": "{{user.name}}",
-    "email": "{{user.email}}"
+    "email": "{{user.email}}",
+    "url": "{{user.url}}"
   },
   "dependencies": {},
   "devDependencies": {
