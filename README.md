@@ -32,9 +32,17 @@ module-generator
 npm init
 ```
 
-## Source Files
+## Usage
 
-If you specify `--source` or `-s` flags, it will produce `index.js` and `test.js` files if they don't already exist. The index is empty, and the test looks like this for a module called `my-funky-module`.
+```
+Options
+	--tape, -t      generate test.js and index.js with tape
+	--offline, -o   when generating tests, don't npm install
+```
+
+## Basic Test
+
+If you specify `--test` or `-t` flags, it will produce `index.js` and `test.js` files if they don't already exist. The index will be empty, and the test looks like this for a module called `my-funky-module`.
 
 ```js
 var myFunkyModule = require('./')
@@ -46,9 +54,11 @@ test(/* description inserted here */, function(t) {
 })
 ```
 
+This also installs `tape@lastest` as a default dependency and stores it in your `package.json`. To avoid the auto-installation (e.g. for offline use), you can use the `--offline` or `-o` flags.
+
 Example:
  
-```module-generator -s```
+```module-generator -t```
 
 ## License
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+var semver = require('semver')
+var chalk = require('chalk')
+var npm = require('npm')
 var varName = require('variable-name')
 var prompt   = require('inquirer').prompt
 var readdirp = require('readdirp')
@@ -9,11 +12,15 @@ var dotty    = require('dotty')
 var path     = require('path')
 var fs       = require('fs')
 var argv = require('yargs')
-      .alias('s', 'source')
-      .describe('s', "generate index.js and test.js files")
+      .alias('t', 'test')
+      .describe('t', 'generate index.js and test.js files')
+      .alias('o', 'offline')
+      .describe('o', 'do not install the test runner')
       .argv
 
 var target = process.cwd()
+
+var TEST_RUNNER = (argv.t && typeof argv.t === 'string') ? argv.t : 'tape'
 
 getParams(function(err, params) {
   if (err) throw err
@@ -23,7 +30,7 @@ getParams(function(err, params) {
   }).on('data', function(file) {
     var dest = path.resolve(target, file.path)
 
-    if (!argv.s) {
+    if (!argv.t) {
       if (file.path === 'index.js' || file.path === 'test.js')
         return
     }
@@ -116,10 +123,53 @@ function getParams(done) {
       results.tags = JSON.stringify(results.tags.split(' ').map(function(str) {
         return dequote(str).trim()
       }).filter(Boolean), null, 2)
+      results.devDependencies = '{}'
 
-      done(null, xtend(results, data))
+      if (argv.t && !argv.o) {
+        handleInstall(function(err, dep) {
+          if (err)
+            console.log(chalk.red('Error installing '+TEST_RUNNER+' '+err))
+          else {
+            //prefix for --save-dev
+            var prefix = config.get('save-prefix')
+            if (prefix && semver.gte(dep[1], '0.1.0')) 
+              dep[1] = prefix+dep[1]
+            
+            console.log(chalk.green('Installed '+dep.join('@')))
+
+            var obj = {}
+            obj[dep[0]] = dep[1]
+            results.devDependencies = JSON.stringify(obj, null, 2)
+          }
+          done(null, xtend(results, data))
+        })
+      } else {
+        done(null, xtend(results, data))
+      }
+
+
+      
     })
   })
+}
+
+function handleInstall(callback) {
+  npm.load({
+      saveDev: true
+  }, function(err) {
+      npm.commands.install([TEST_RUNNER], function(err, data) {
+          if (!err) {
+            data = data[data.length-1][0]
+            data = data.split('@')
+          }
+
+          if (callback) 
+            callback(err, data)
+      });
+      npm.on("log", function(message) {
+          console.log(message);
+      });
+  });
 }
 
 function bail(cmd) {
