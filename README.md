@@ -32,15 +32,25 @@ module-generator
 npm init
 ```
 
+This will produce some generic files already filled in:
+
+```
+README.md
+LICENSE.md
+package.json
+.gitignore
+.npmignore
+```
+
 ## Usage
 
 ```
 Options
-	--tape, -t      generate test.js and index.js with tape
+	--test, -t      generate test.js and index.js with tape
 	--offline, -o   when generating tests, don't npm install
 ```
 
-## Basic Test
+## Basic Tests
 
 If you specify `--test` or `-t` flags, it will produce `index.js` and `test.js` files if they don't already exist. The index will be empty, and the test looks like this for a module called `my-funky-module`.
 
@@ -54,7 +64,7 @@ test(/* description inserted here */, function(t) {
 })
 ```
 
-This also installs `tape@lastest` as a default dependency and stores it in your `package.json`. To avoid the auto-installation (e.g. for offline use), you can use the `--offline` or `-o` flags.
+This also installs `tape@lastest` as a default devDependency and stores it in your `package.json`. To avoid the auto-installation (e.g. for offline use), you can use the `--offline` or `-o` flags.
 
 Example:
  
