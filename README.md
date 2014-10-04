@@ -19,7 +19,7 @@ npm config set init.author.name "Your Name"
 npm config set init.author.email "me@example.com"
 npm config set init.author.github "your-github-handle"
 
-# optional, defaults to github
+# optional, defaults to your github
 npm config set init.author.url "http://your-site.com/"
 ```
 
