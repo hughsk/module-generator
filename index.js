@@ -78,10 +78,10 @@ function getParams(done) {
           'name': 'description'
         , 'message': 'Module description'
       },
-      // {
-      //     'name': 'tags'
-      //   , 'message': 'Module tags:'
-      // },
+      {
+          'name': 'tags'
+        , 'message': 'Module tags:'
+      },
       {
           'name': 'stability'
         , 'type': 'list'
@@ -101,9 +101,9 @@ function getParams(done) {
 
       results.name = dequote(results.name)
       results.description = dequote(results.description)
-      // results.tags = JSON.stringify(results.tags.split(' ').map(function(str) {
-      //   return dequote(str).trim()
-      // }).filter(Boolean), null, 2)
+      results.tags = JSON.stringify(results.tags.split(' ').map(function(str) {
+        return dequote(str).trim()
+      }).filter(Boolean), null, 2)
 
       done(null, xtend(results, data))
     })
