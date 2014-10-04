@@ -1,7 +1,7 @@
 # module-generator 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-The generator script I use for fresh modules. Forked from [hughsk](https://github.com/hughsk/module-generator). Feel free to fork for custom configuration.
+The generator script I use for fresh modules. Forked from [hughsk](https://github.com/hughsk/module-generator). Feel free to fork for further customization.
 
 ## Usage
 
@@ -41,6 +41,10 @@ test("..description..", function(t) {
 	t.end()
 })
 ```
+
+You can avoid generating these files with the `--bare` or `-b` option:
+
+```module-generator -b```
 
 ## License
 
