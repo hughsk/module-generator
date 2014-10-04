@@ -30,7 +30,7 @@ npm init
 
 ## Source Files
 
-This uses `tape` for tests and writes an `index.js` and `test.js` (if they don't already exist). The index is empty, and the test looks like this for a module called `my-funky-module`.
+If you specify `--source` or `-s` flags, it will produce `index.js` and `test.js` files if they don't already exist. The index is empty, and the test looks like this for a module called `my-funky-module`.
 
 ```js
 var myFunkyModule = require('./')
@@ -42,9 +42,9 @@ test(/* description inserted here */, function(t) {
 })
 ```
 
-You can avoid generating these files with the `--bare` or `-b` option:
-
-```module-generator -b```
+Example:
+ 
+```module-generator -s```
 
 ## License
 
