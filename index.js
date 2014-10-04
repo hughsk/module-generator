@@ -20,7 +20,10 @@ var argv = require('yargs')
 
 var target = process.cwd()
 
-var TEST_RUNNER = (argv.t && typeof argv.t === 'string') ? argv.t : 'tape'
+var TEST_RUNNER = 'tape'
+
+//TODO: support alternative test runners like prova
+//(argv.t && typeof argv.t === 'string') ? argv.t : 'tape'
 
 getParams(function(err, params) {
   if (err) throw err
