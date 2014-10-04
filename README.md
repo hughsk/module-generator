@@ -30,13 +30,13 @@ npm init
 
 ## Source Files
 
-This uses `tape` for tests and writes an `index.js` and `test.js` (if they don't already exist). The test looks like this for a module called `my-funky-module`.
+This uses `tape` for tests and writes an `index.js` and `test.js` (if they don't already exist). The index is empty, and the test looks like this for a module called `my-funky-module`.
 
 ```js
 var myFunkyModule = require('./')
 var test = require('tape').test
 
-test("..description..", function(t) {
+test(/* description inserted here */, function(t) {
 	
 	t.end()
 })
