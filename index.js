@@ -11,6 +11,7 @@ var xtend    = require('xtend')
 var dotty    = require('dotty')
 var path     = require('path')
 var fs       = require('fs')
+
 var argv = require('yargs')
       .alias('t', 'test')
       .describe('t', 'generate index.js and test.js files')
