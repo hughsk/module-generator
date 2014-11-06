@@ -1,0 +1,12 @@
+{
+    "asi": true,
+    "laxcomma": true,
+    "laxbreak": true,
+    "node": true,
+    "smarttabs": true,
+    "-W099": true,
+    "-W119": false,
+    "esnext": true,
+    "undef": true,
+    "browser": true
+}
