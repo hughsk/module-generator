@@ -29,7 +29,6 @@ Run the generator in a fresh folder and you're good to go!
 mkdir my-new-module
 cd my-new-module
 module-generator
-npm init
 ```
 
 This will produce some generic files already filled in:
