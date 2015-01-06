@@ -4,21 +4,23 @@
   "description": "{{description}}",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {},
   "author": {
     "name": "{{user.name}}",
     "email": "{{user.email}}",
-    "url": "{{user.site}}"
+    "url": "{{user.url}}"
   },
   "dependencies": {},
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/{{user.github}}/{{name}}.git"
+  "devDependencies": {{devDependencies}},
+  "scripts": {
+    "test": "node test.js"
   },
   "keywords": {{tags}},
-  "homepage": "https://github.com/{{user.github}}/{{name}}",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/{{org.github}}/{{name}}.git"
+  },
+  "homepage": "https://github.com/{{org.github}}/{{name}}",
   "bugs": {
-    "url": "https://github.com/{{user.github}}/{{name}}/issues"
+    "url": "https://github.com/{{org.github}}/{{name}}/issues"
   }
 }
