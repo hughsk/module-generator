@@ -1,5 +1,5 @@
 var {{varName}} = require('./')
-var test = require('tape').test
+var test = require('tape')
 
 test("{{description}}", function(t) {
     

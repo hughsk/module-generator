@@ -17,10 +17,10 @@
   "keywords": {{tags}},
   "repository": {
     "type": "git",
-    "url": "git://github.com/{{user.github}}/{{name}}.git"
+    "url": "git://github.com/{{org.github}}/{{name}}.git"
   },
-  "homepage": "https://github.com/{{user.github}}/{{name}}",
+  "homepage": "https://github.com/{{org.github}}/{{name}}",
   "bugs": {
-    "url": "https://github.com/{{user.github}}/{{name}}/issues"
+    "url": "https://github.com/{{org.github}}/{{name}}/issues"
   }
 }

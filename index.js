@@ -14,9 +14,9 @@ var fs       = require('fs')
 
 var argv = require('yargs')
       .alias('t', 'test')
+      .alias('u', 'user')
       .describe('t', 'generate index.js and test.js files')
-      .alias('o', 'offline')
-      .describe('o', 'do not install the test runner')
+      .describe('u', 'an organization override for GitHub URLs')
       .argv
 
 var target = process.cwd()
@@ -81,10 +81,23 @@ function getParams(done) {
       }
     }
 
+    if (argv.u) {
+      data.org = { name: argv.u, github: argv.u }
+      console.log(chalk.green('Creating module under organization '+chalk.bold(data.org.name)))
+    }
+
     // if (!data.user.username) return bail('npm login')
     if (!data.user.name) return bail('npm config set init.author.name "Your Name"')
     if (!data.user.email) return bail('npm config set init.author.email "me@example.com"')
     if (!data.user.github) return bail('npm config set init.author.github "your-github-handle"')
+
+    //default org to user
+    if (!data.org) {
+      data.org = {
+        name: data.user.name,
+        github: data.user.github
+      }
+    }
 
     if (!data.user.url) {
       data.user.url = 'https://github.com/'+data.user.github
@@ -129,7 +142,7 @@ function getParams(done) {
       }).filter(Boolean), null, 2)
       results.devDependencies = '{}'
 
-      if (argv.t && !argv.o) {
+      if (argv.t) {
         handleInstall(function(err, dep) {
           if (err)
             console.log(chalk.red('Error installing '+TEST_RUNNER+' '+err))

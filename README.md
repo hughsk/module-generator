@@ -46,7 +46,7 @@ package.json
 ```
 Options
 	--test, -t      generate test.js and index.js with tape
-	--offline, -o   when generating tests, don't npm install
+    --user, -u      the user/organization override
 ```
 
 ## Basic Tests
@@ -63,11 +63,21 @@ test(/* description inserted here */, function(t) {
 })
 ```
 
-This also installs `tape@lastest` as a default devDependency and stores it in your `package.json`. To avoid the auto-installation (e.g. for offline use), you can use the `--offline` or `-o` flags.
+This also installs `tape@lastest` as a default devDependency and stores it in your `package.json`. 
 
 Example:
  
 ```module-generator -t```
+
+## User/Organization
+
+If you want the GitHub links to point to a specific organization or user, you can specify it with a command-line parameter. For example:
+
+```sh
+module-generator -u stackgl
+```
+
+This will use "stackgl" as the name in License and in all github links. The author's name/URL still uses `npm config` as set earlier. 
 
 ## License
 
